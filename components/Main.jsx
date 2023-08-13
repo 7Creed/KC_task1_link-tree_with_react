@@ -6,8 +6,8 @@ const links = [
   "kodeCamp team",
   "kodeCamp books",
   "python books",
-  "Background Check for Coders",
-  "Design Books",
+  "background Check for Coders",
+  "design Books",
 ];
 export default function Main() {
   return (
@@ -15,7 +15,16 @@ export default function Main() {
       {links.map((item, idx) => {
         return (
           <div key={idx} className="link_row">
-            <p>{item}</p>
+            <p>
+              {item
+                .split(" ")
+                .map((w) =>
+                  w.charAt(0) == "f"
+                    ? w
+                    : w.charAt(0).toUpperCase() + w.slice(1)
+                )
+                .join(" ")}
+            </p>
           </div>
         );
       })}
